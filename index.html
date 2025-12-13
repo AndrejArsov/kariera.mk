@@ -58,6 +58,7 @@
       height: 80vh;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 60px;
       background: linear-gradient(120deg, #fdfbfa, #85B3D5);
     
@@ -85,6 +86,7 @@
     }
     .spiral-staircase {
       height: 100%;
+      max-width: 150%;
     }
 
         /*BUTTON */
@@ -232,6 +234,25 @@
       .cards {
         grid-template-columns: repeat(2, 1fr);
       }
+      .hero-img {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .hero-img {
+        display: none;
+      }
+      .hero {
+        padding: 0 30px;
+        display: flex;
+        justify-content: center;
+      }
+      .hero .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     /* MOBILE */
@@ -248,6 +269,7 @@
       .hero {
         height: auto;
         padding: 60px 20px;
+        text-align: center;
       }
 
       .hero h1 {
@@ -261,15 +283,14 @@
       .cards {
         grid-template-columns: 1fr;
       }
+      .hero-img {
+        display: none;
+      }
+      .gallery {
+        grid-template-columns: 1fr !important;
+      }
     }
 
-
-/* MOBILE */
-@media (max-width: 600px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-}
 
     /* GALLERY */
 .gallery {
@@ -300,7 +321,7 @@
   <header>
     <div class="logo">Кариера +</div>
     <nav>
-      <span><a href="index.html" class="selected">За нас</a></span>
+      <span><a href="index.html" disabled class="selected">За нас</a></span>
       <span>Галерија</span>
       <span><a href="fashion.html">Академии</a></span>
     </nav>
