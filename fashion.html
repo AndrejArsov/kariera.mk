@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fashion Academy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #faf7f5;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav span {
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* HERO */
+    .hero {
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+      background: linear-gradient(120deg, #85B3D5, #fdfbfa);
+    }
+
+    .hero h1 {
+      font-size: 46px;
+    }
+
+    /* CARDS */
+    section {
+      padding: 80px 60px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .card {
+      height: 340px;
+      border-radius: 20px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .overlay h3 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .overlay button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #111;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* IMAGES */
+    .c1 { background-image: url('https://images.unsplash.com/photo-1521334884684-d80222895322'); }
+    .c2 { background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d'); }
+    .c3 { background-image: url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c'); }
+    .c4 { background-image: url('https://images.unsplash.com/photo-1520975698519-59cbd6c0f4c3'); }
+    .c5 { background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9'); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      header { padding: 20px 30px; }
+      section { padding: 60px 30px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 15px; }
+      .hero { padding: 40px 20px; height: auto; }
+      .hero h1 { font-size: 32px; }
+      section { padding: 50px 20px; }
+      .cards { grid-template-columns: 1fr; }
+    }
+
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.gallery-item {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 360px;
+  position: relative;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Кариера+</div>
+    <nav>
+      <span>За нас</span>
+      <span>Галерија</span>
+      <span>Академии</span>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Fashion Академии</h1>
+  </div>
+
+  <!-- CARDS -->
+  <section>
+    <div class="cards">
+      <div class="card c1">
+        <div class="overlay">
+          <h3>Една година</h3>
+          <button>Види повеќе</button>
+        </div>
+      </div>
+      <div class="card c2">
+        <div class="overlay">
+          <h3>2 и 3 години</h3>
+          <button>Види повеќе</button>
+        </div>
+      </div>
+      <div class="card c3">
+        <div class="overlay">
+          <h3>Модули</h3>
+          <button>Види повеќе</button>
+        </div>
+      </div>
+      <div class="card c4">
+        <div class="overlay">
+          <h3>Кратки курсеви</h3>
+          <button>Види повеќе</button>
+        </div>
+      </div>
+      <div class="card c5">
+        <div class="overlay">
+          <h3>WORKSHOPS
+          </h3>
+          <button>Види повеќе</button>
+        </div>
+      </div>
+    </div>
+  </section>
+   <section>
+  <h2 class="section-title">Галерија</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+    </div>
+    <div class="gallery-item">
+      <video autoplay muted loop playsinline>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кариера +</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #faf7f5;
+      color: #222;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav span {
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: default; /* ne se klika */
+      opacity: 0.8;
+    }
+
+    /* HERO */
+    .hero {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+      background: linear-gradient(120deg, #fdfbfa, #85B3D5);
+    
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.85;
+    }
+
+        /*BUTTON */
+    .apply-btn {
+      margin-top: 30px;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 40px;
+      background: #111;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .apply-btn:hover {
+      opacity: 0.85;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 60px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+        /* IMAGE CARDS */
+    .image-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .image-card {
+      height: 420px;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .image-card.fashion {
+      background-image: url('https://i.pinimg.com/736x/7f/b5/1d/7fb51d217265dd3205e20cd53760d396.jpg');
+    }
+
+    .image-card.beauty {
+      background-image: url('https://i.pinimg.com/1200x/cd/a6/5d/cda65d474334953fc9ca50edbb8bbe48.jpg');
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .overlay h3 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .overlay button {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #111;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .image-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .image-card {
+        height: 360px;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px;
+      text-align: center;
+      background: #111;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* TABLET */
+    @media (max-width: 900px) {
+      header {
+        padding: 20px 30px;
+      }
+
+      .hero {
+        padding: 0 30px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      .hero {
+        height: auto;
+        padding: 60px 20px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+    /* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.gallery-item {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 360px;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Кариера +</div>
+    <nav>
+      <span>За нас</span>
+      <span>Галерија</span>
+      <span>Академии</span>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>СЕГА МОЖЕШ САМ</h1>
+      <p>
+        Една скала поблиску до твоето вработување.
+      </p>
+      <button class="apply-btn">Аплицирај</button>
+    </div>
+  </div>
+
+    <!-- AKADEMII PREVIEW -->
+  <section>
+    <div class="image-cards">
+      <div class="image-card fashion">
+        <div class="overlay">
+          <h3>Мода</h3>
+          <button>Види повеќе</button>
+        </div>
+      </div>
+      <div class="image-card beauty">
+        <div class="overlay">
+          <h3>Убавина</h3>
+          <button>Види повеќе</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+  <h2 class="section-title">Галерија</h2>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+    </div>
+
+    <div class="gallery-item">
+      <video autoplay muted loop playsinline>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+    </div>
+
+    <div class="gallery-item">
+      <video autoplay muted loop playsinline>
+        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    instagram                 facebook 
+  </footer>
+
+</body>
+</html>
