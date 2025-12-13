@@ -1,0 +1,9 @@
+kariera - 
+	skali na hero
+	linkovi u footer DONE
+fashion - 
+	popravi header DONE
+segde -
+	stavi animacii
+	napravi github pages
+	povrzi linkovi DONE

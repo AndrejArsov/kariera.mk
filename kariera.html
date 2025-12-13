@@ -43,8 +43,14 @@
     nav span {
       font-size: 14px;
       text-transform: uppercase;
-      cursor: default; /* ne se klika */
       opacity: 0.8;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    .selected {
+      font-weight: bold;
     }
 
     /* HERO */
@@ -70,6 +76,15 @@
     .hero p {
       font-size: 18px;
       opacity: 0.85;
+    }
+    .hero-img {
+      width: calc(100vw - 600px);
+      height: 80vh;
+      display: flex;
+      justify-content: end;
+    }
+    .spiral-staircase {
+      height: 100%;
     }
 
         /*BUTTON */
@@ -191,8 +206,15 @@
       background: #111;
       color: white;
       font-size: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
-
+    .socials {
+      height: 30px;
+      margin: 10px;
+      cursor: pointer;
+    }
     /* TABLET */
     @media (max-width: 900px) {
       header {
@@ -278,9 +300,9 @@
   <header>
     <div class="logo">Кариера +</div>
     <nav>
-      <span>За нас</span>
+      <span><a href="kariera.html" class="selected">За нас</a></span>
       <span>Галерија</span>
-      <span>Академии</span>
+      <span><a href="fashion.html">Академии</a></span>
     </nav>
   </header>
 
@@ -292,6 +314,9 @@
         Една скала поблиску до твоето вработување.
       </p>
       <button class="apply-btn">Аплицирај</button>
+    </div>
+    <div class="hero-img">
+      <img class="spiral-staircase" src="img/spiral-staircase-removebg-preview (1).png" alt="">
     </div>
   </div>
 
@@ -341,8 +366,12 @@
 
 
   <!-- FOOTER -->
-  <footer>
-    instagram                 facebook 
+  <footer class="footer">
+    <div>
+      <a href="https://www.instagram.com/kariera_plus/?hl=en" target="_blank"><img class="socials" src="img/instagram-167-svgrepo-com.svg" alt=""></a>
+      <a href="https://www.facebook.com/skolozaubavinaimoda/?locale=mk_MK" target="_blank"><img class="socials" src="img/facebook-svgrepo-com (1).svg" alt=""></a>
+      
+    </div>
   </footer>
 
 </body>
