@@ -45,15 +45,43 @@
       text-transform: uppercase;
       opacity: 0.8;
     }
-    a {
+    .nav-link {
       text-decoration: none;
       color: black;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #85B3D5;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
     }
     .selected {
       font-weight: bold;
     }
 
     /* HERO */
+
+    .hero-title {
+      animation: revealText 0.9s ease-out forwards;
+    }
+
+    @keyframes revealText {
+      from {
+        transform: translateX(-300px);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
     .hero {
       height: 80vh;
       display: flex;
@@ -127,7 +155,6 @@
       padding: 40px;
       border-radius: 16px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
 
     .card h3 {
@@ -153,6 +180,13 @@
       overflow: hidden;
       background-size: cover;
       background-position: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .image-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
     .image-card.fashion {
@@ -237,6 +271,7 @@
       .hero-img {
         display: none;
       }
+      
     }
 
     @media (max-width: 1050px) {
@@ -253,6 +288,12 @@
         flex-direction: column;
         align-items: center;
       }
+      .gallery-item {
+        width: 80% !important;
+      }
+      .gallery-item:hover {
+          width: 90% !important; 
+        } 
     }
 
     /* MOBILE */
@@ -286,24 +327,43 @@
       .hero-img {
         display: none;
       }
-      .gallery {
-        grid-template-columns: 1fr !important;
+      .row {
+        width: 100% !important;
+        align-items: center !important;
       }
+      #row1 {
+        display: none !important;
+      }
+      .gallery-item {
+        width: 70% !important;
+      }
+      .gallery-item:hover {
+          width: 80% !important; 
+        } 
     }
 
 
     /* GALLERY */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .gallery-item {
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   overflow: hidden;
   height: 360px;
+  width: 55%;
+  margin-bottom: 60px;
+  transition: all 0.5s ease;
 }
+.gallery-item:hover {
+  width: 80%;
+  height: 440px;
+
+} 
 
 .gallery-item img,
 .gallery-item video {
@@ -311,6 +371,26 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.floating-element {
+  transition: transform 0.05s ease-out;
+}
+.row {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px;
+}
+#row1 {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+#row1 .gallery-item {
+  margin-bottom: 35px !important;
 }
 
   </style>
@@ -321,16 +401,16 @@
   <header>
     <div class="logo">Кариера +</div>
     <nav>
-      <span><a href="index.html" disabled class="selected">За нас</a></span>
+      <span><a href="index.html" disabled class="selected nav-link">За нас</a></span>
       <span>Галерија</span>
-      <span><a href="fashion.html">Академии</a></span>
+      <span><a class="nav-link" href="fashion.html">Академии</a></span>
     </nav>
   </header>
 
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero floating-element" data-speed="0.1">
     <div class="hero-content">
-      <h1>СЕГА МОЖЕШ САМ</h1>
+      <h1 class="hero-title">СЕГА МОЖЕШ САМ</h1>
       <p>
         Една скала поблиску до твоето вработување.
       </p>
@@ -363,26 +443,42 @@
   <h2 class="section-title">Галерија</h2>
 
   <div class="gallery">
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+    <div class="row" id="row1">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+      </div>
+
+      <div class="gallery-item">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+      </div>
+    </div>
+    
+    <div class="row" id="row2">
+      <div class="gallery-item">
+          <video autoplay muted loop playsinline>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+        </div>
+
+        
+      </div>
     </div>
 
-    <div class="gallery-item">
-      <video autoplay muted loop playsinline>
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
-    </div>
-
-    <div class="gallery-item">
-      <video autoplay muted loop playsinline>
-        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-      </video>
-    </div>
-  </div>
+    
 </section>
 
 
@@ -396,4 +492,42 @@
   </footer>
 
 </body>
+<script>
+  // Parallax Scroll Effect
+class ParallaxScroll {
+  constructor() {
+    this.elements = document.querySelectorAll('.floating-element');
+    this.init();
+  }
+
+  init() {
+    // Start listening to scroll events
+    window.addEventListener('scroll', () => this.onScroll());
+  }
+
+  onScroll() {
+    const scrollPos = window.pageYOffset;
+
+    this.elements.forEach((element) => {
+      // Get the speed factor (you can customize this per element)
+      const speed = element.getAttribute('data-speed') || 0.5;
+      
+      // Calculate the transform value
+      const yPos = scrollPos * speed;
+      
+      // Apply the transform
+      element.style.transform = `translateY(${yPos}px)`;
+    });
+  }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  new ParallaxScroll();
+});
+
+
+
+
+</script>
 </html>

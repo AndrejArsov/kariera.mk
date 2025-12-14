@@ -15,6 +15,7 @@
     body {
       background-color: #faf7f5;
       color: #222;
+      overflow-x: hidden;
     }
 
     /* HEADER */
@@ -45,9 +46,23 @@
       text-transform: uppercase;
       opacity: 0.8;
     }
-    a {
+    .nav-link {
       text-decoration: none;
       color: black;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #85B3D5;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
     }
     .selected {
       font-weight: bold;
@@ -60,6 +75,20 @@
       align-items: center;
       padding: 0 60px;
       background: linear-gradient(120deg, #85B3D5, #fdfbfa);
+    }
+    .hero-title {
+      animation: revealText 1s ease-out forwards;
+    }
+
+    @keyframes revealText {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero h1 {
@@ -84,6 +113,13 @@
       background-position: center;
       position: relative;
       overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
     .overlay {
@@ -140,6 +176,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  transform: translateX(300px);
+  transition: all 0.8s ease-out;
+}
+.gallery.visible {
+  transform: translateX(0);
 }
 
 .gallery-item {
@@ -168,6 +209,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+.floating-element {
+  transition: transform 0.05s ease-out;
+}
   </style>
 </head>
 <body>
@@ -176,15 +221,15 @@
   <header>
     <div class="logo">Кариера+</div>
     <nav>
-      <span><a href="index.html">За нас</a></span>
+      <span><a href="index.html" class="nav-link">За нас</a></span>
       <span>Галерија</span>
-      <span><a href="fashion.html" class="selected">Академии</a></span>
+      <span><a href="fashion.html" class="selected nav-link">Академии</a></span>
     </nav>
   </header>
 
   <!-- HERO -->
-  <div class="hero">
-    <h1>Fashion Академии</h1>
+  <div class="hero floating-element" data-speed="0.2">
+    <h1 class="hero-title">Fashion Академии</h1>
   </div>
 
   <!-- CARDS -->
@@ -241,4 +286,63 @@
 </section>
 
 </body>
+<script>
+  // Parallax Scroll Effect
+class ParallaxScroll {
+  constructor() {
+    this.elements = document.querySelectorAll('.floating-element');
+    this.init();
+  }
+
+  init() {
+    window.addEventListener('scroll', () => this.onScroll());
+  }
+
+  onScroll() {
+    const scrollPos = window.pageYOffset;
+
+    this.elements.forEach((element) => {
+      const speed = element.getAttribute('data-speed') || 0.5;
+      const yPos = scrollPos * speed;
+      element.style.transform = `translateY(${yPos}px)`;
+    });
+  }
+}
+
+// Gallery Slide In Animation
+class SlideInOnScroll {
+  constructor(selector) {
+    this.elements = document.querySelectorAll(selector);
+    this.init();
+  }
+
+  init() {
+    window.addEventListener('scroll', () => this.checkScroll());
+    // Check on load
+    this.checkScroll();
+  }
+
+  checkScroll() {
+    this.elements.forEach((element) => {
+      const elementTop = element.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      // If element is 80% visible
+      if (elementTop < windowHeight * 0.8) {
+        element.classList.add('visible');
+      }
+    });
+  }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  new ParallaxScroll();
+  new SlideInOnScroll('.gallery');
+});
+
+
+
+
+</script>
 </html>
