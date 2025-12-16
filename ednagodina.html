@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Една Година – Програма</title>
+
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #faf7f5;
+    color: #222;
+}
+
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav span {
+      font-size: 14px;
+      text-transform: uppercase;
+      cursor: default;
+    }
+
+    /* HERO */
+    .hero {
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+      background: linear-gradient(120deg, #85B3D5, #fdfbfa);
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .apply-btn {
+      padding: 14px 36px;
+      border-radius: 40px;
+      border: none;
+      background: #111;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* PROGRAMA */
+    section { padding: 100px 60px; }
+
+    .program-hero {
+      max-width: 800px;
+      margin-bottom: 50px;
+    }
+
+    .program-hero h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .program-hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      opacity: .85;
+    }
+
+    /* MODULI */
+    .module-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 50px;
+    }
+
+    .module-tabs button {
+      padding: 8px 18px;
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      background: transparent;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .module-tabs button.active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    /* MODULE CONTENT */
+    .module-content {
+      background: #fff;
+      border-radius: 26px;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+    }
+
+    .module-content h3 { font-size: 28px; margin-bottom: 15px; }
+
+    .module-content p { line-height: 1.7; margin-bottom: 20px; }
+
+    .module-content ul { margin-left: 18px; margin-bottom: 20px; }
+
+    .module-content li { margin-bottom: 8px; }
+
+    #moduleText {
+      text-align: justify;
+    }
+
+    .duration { font-size: 13px; opacity: .7; }
+
+    .module-content img {
+      width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      header, .hero, section { padding: 40px 20px; }
+      .hero { height: auto; }
+      .hero-content h1 { font-size: 36px; }
+      .hero-content { text-align: center; width: 100%;}
+      .heroText {text-align: center;}
+      .module-content { grid-template-columns: 1fr; padding: 20px; }
+    }
+
+     .gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.gallery-item {
+  border-radius: 20px;
+  overflow: hidden;
+  height: 360px;
+  position: relative;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  opacity: 1;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  background-color: white;
+  opacity: 1;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1;}
+
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
+.pointer {
+  cursor: pointer;
+}
+.nav-link {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #85B3D5;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.selected {
+    font-weight: bold;
+}
+.hero-title {
+      animation: revealText 0.9s ease-out forwards;
+      opacity: 1;
+    }
+
+    @keyframes revealText {
+      from {
+        opacity: 0;
+        transform: translateX(-300px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+@media (max-width: 600px) {
+      header { flex-direction: column; gap: 15px; }
+      .hero-content { text-align: center;}
+      .module-tabs {
+        height: 12vh;
+        overflow: scroll;
+      }
+    }
+
+footer {
+      padding: 40px;
+      text-align: center;
+      background: #111;
+      color: white;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    .socials {
+      height: 30px;
+      margin: 10px;
+      cursor: pointer;
+    }    
+  </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Кариера +</div>
+    <nav>
+      <span><a href="index.html" class="nav-link">За нас</a></span>
+      <span><a href="ednaGodinaGalerija.html" class="nav-link">Галерија</a></span>
+      <span class="dropdown pointer"><span class="selected">Академии</span>
+      <div class="dropdown-content">
+        <a href="#">Beauty</a>
+        <span class="dropdown1">
+          <a href="#" disabled class="selected">Fashion</a>
+          <div class="dropdown-content1">
+            <a href="fashion.html">Целосен Преглед</a>
+            <a href="ednagodina.html" disabled class="selected">1 Година</a>
+            <a href="">2 и 3 Години</a>
+            <a href="">Модули</a>
+            <a href="">Кратки Курсеви</a>
+            <a href="">Workshops</a>
+          </div>
+        </span>
+      </div>
+      </span>
+    </nav>
+  </header>
+
+<div class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Академија - Една Година</h1>
+    <p class="hero-text">
+      Во текот на годината, студентите учат за дизајн на облека, материјали, креирање колекции, модна илустрација, текстилни технологии и трендови.
+    </p>
+    <button class="apply-btn">Аплицирај</button>
+  </div>
+</div>
+
+<section>
+  <div class="program-hero">
+    <h2>Една година програма</h2>
+    <p>12 модули, практична работа и професионално менторство.</p>
+  </div>
+
+  <div class="module-tabs" id="tabs"></div>
+
+  <div class="module-content">
+    <div>
+      <h3 id="moduleTitle"></h3>
+      <p id="moduleText"></p>
+      <ul id="moduleList"></ul>
+      <span class="duration" id="moduleDuration"></span>
+    </div>
+    <img id="moduleImage" />
+    
+  </div>
+</section>
+
+<script>
+  const modules = Array.from({ length: 12 }, (_, i) => ({
+    title: `Модул ${i + 1}`,
+    text: 'Модулот „Дизајн на облека и креирање колекции“ е централен дел од академијата за мода, каде студентите развиваат креативни и технички вештини потребни за дизајнирање на облека. Во текот на модулот, учат како да креираат оригинални модни концепти и колекции, започнувајќи од првичните скици до финалните модели. Студентите се запознаваат со различни видови материјали и текстили, нивните својства и начини на употреба, како и со техники за развој и изработка на прототипи. Особено внимание се посветува на разбирање на современите модни трендови и како тие влијаат на дизајнот. Преку практични вежби и проекти, студентите ја усовршуваат својата креативност и техничка прецизност, подготвувајќи се за успешна кариера во светот на модата', 
+
+    list: ['Моден дизајн и концепти', 'Скицирање и илустрации', 'Материјали и текстили', 'Развој на колекции', 'Работа со прототипи', 'Трендови во мода'],
+    duration: 'Времетраење: 2 недели',
+    image: 'https://i.pinimg.com/736x/13/c4/aa/13c4aae6d85e04014f61e02a90bfa4ee.jpg'
+  }));
+
+  const tabs = document.getElementById('tabs');
+  const title = document.getElementById('moduleTitle');
+  const text = document.getElementById('moduleText');
+  const list = document.getElementById('moduleList');
+  const duration = document.getElementById('moduleDuration');
+  const image = document.getElementById('moduleImage');
+
+  function loadModule(index) {
+    document.querySelectorAll('.module-tabs button').forEach(btn => btn.classList.remove('active'));
+    tabs.children[index].classList.add('active');
+
+    const m = modules[index];
+    title.textContent = m.title;
+    text.textContent = m.text;
+    list.innerHTML = m.list.map(item => `<li>${item}</li>`).join('');
+    duration.textContent = m.duration;
+    image.src = m.image;
+  }
+
+  modules.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = `модул ${i + 1}`;
+    btn.onclick = () => loadModule(i);
+    tabs.appendChild(btn);
+  });
+
+  loadModule(0);
+</script>
+
+
+
+</body>
+</html>

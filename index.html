@@ -43,7 +43,6 @@
     nav span {
       font-size: 14px;
       text-transform: uppercase;
-      opacity: 0.8;
     }
     .nav-link {
       text-decoration: none;
@@ -71,13 +70,16 @@
 
     .hero-title {
       animation: revealText 0.9s ease-out forwards;
+      opacity: 1;
     }
 
     @keyframes revealText {
       from {
+        opacity: 0;
         transform: translateX(-300px);
       }
       to {
+        opacity: 1;
         transform: translateX(0);
       }
     }
@@ -288,12 +290,7 @@
         flex-direction: column;
         align-items: center;
       }
-      .gallery-item {
-        width: 80% !important;
-      }
-      .gallery-item:hover {
-          width: 90% !important; 
-        } 
+      
     }
 
     /* MOBILE */
@@ -327,70 +324,60 @@
       .hero-img {
         display: none;
       }
-      .row {
-        width: 100% !important;
-        align-items: center !important;
-      }
-      #row1 {
-        display: none !important;
-      }
-      .gallery-item {
-        width: 70% !important;
-      }
-      .gallery-item:hover {
-          width: 80% !important; 
-        } 
     }
-
-
-    /* GALLERY */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
-
-.gallery-item {
-  border-top-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  overflow: hidden;
-  height: 360px;
-  width: 55%;
-  margin-bottom: 60px;
-  transition: all 0.5s ease;
-}
-.gallery-item:hover {
-  width: 80%;
-  height: 440px;
-
-} 
-
-.gallery-item img,
-.gallery-item video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
+   
 .floating-element {
   transition: transform 0.05s ease-out;
 }
-.row {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  padding: 20px;
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  opacity: 1;
+  min-width: 160px;
+  z-index: 1000;
 }
-#row1 {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
 }
-#row1 .gallery-item {
-  margin-bottom: 35px !important;
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  background-color: white;
+  opacity: 1;
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1;}
+
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
+.pointer {
+  cursor: pointer;
 }
 
   </style>
@@ -402,8 +389,23 @@
     <div class="logo">Кариера +</div>
     <nav>
       <span><a href="index.html" disabled class="selected nav-link">За нас</a></span>
-      <span>Галерија</span>
-      <span><a class="nav-link" href="fashion.html">Академии</a></span>
+      <span><a href="galerija.html" class="nav-link">Галерија</a></span>
+      <span class="dropdown pointer">Академии
+      <div class="dropdown-content">
+        <a href="#">Beauty</a>
+        <span class="dropdown1">
+          <a href="#" disabled>Fashion</a>
+          <div class="dropdown-content1">
+            <a href="fashion.html">Целосен Преглед</a>
+            <a href="ednagodina.html">1 Година</a>
+            <a href="">2 и 3 Години</a>
+            <a href="">Модули</a>
+            <a href="">Кратки Курсеви</a>
+            <a href="">Workshops</a>
+          </div>
+        </span>
+      </div>
+      </span>
     </nav>
   </header>
 
@@ -442,41 +444,7 @@
   <section>
   <h2 class="section-title">Галерија</h2>
 
-  <div class="gallery">
-    <div class="row" id="row1">
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
-      </div>
-
-      <div class="gallery-item">
-        <video autoplay muted loop playsinline>
-          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
-      </div>
-    </div>
-    
-    <div class="row" id="row2">
-      <div class="gallery-item">
-          <video autoplay muted loop playsinline>
-            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-          </video>
-        </div>
-
-      <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
-        </div>
-
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
-        </div>
-
-        
-      </div>
-    </div>
+  
 
     
 </section>

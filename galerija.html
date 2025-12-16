@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерија</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #faf7f5;
+    color: #222;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    opacity: 1;
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    background-color: white;
+    opacity: 1;
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-content1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content1 a:hover {background-color: #f1f1f1;}
+
+.dropdown1:hover .dropdown-content1 {
+    display: block;
+}
+.pointer {
+    cursor: pointer;
+}
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav span {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.nav-link {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #85B3D5;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.selected {
+    font-weight: bold;
+}
+.hero {
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+      background: linear-gradient(120deg, #85B3D5, #fdfbfa);
+    }
+    .hero-title {
+      animation: revealText 1s ease-out forwards;
+    }
+
+    @keyframes revealText {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 46px;
+    }
+    @media (max-width: 1050px) {
+      .gallery-item {
+        width: 80% !important;
+      }
+      .row1 {
+        display: none !important;
+      }
+      .row2 {
+        width: 50% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: start !important;
+        margin-top: 50px !important;
+      }
+      .row {
+        width: 50% !important;
+      }
+    }
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 15px; }
+      .hero { padding: 40px 20px; height: auto; }
+      .hero h1 { font-size: 32px; }
+      section { padding: 50px 20px; }
+      .row {
+        width: 100% !important;
+        align-items: center !important;
+      }
+      .row1 {
+        display: none !important;
+      }
+      .row2 {
+        display: none !important;
+      }
+      .gallery-item {
+        width: 70% !important;
+      }
+    }
+
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.gallery-item {
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  height: 360px;
+  width: 100%;
+  margin-bottom: 60px;
+  transition: all 0.5s ease;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.row {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 20px;
+}
+.row1 {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.row2 {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.row1 .gallery-item {
+  margin-bottom: 35px !important;
+}
+
+.row2 .gallery-item {
+  margin-bottom: 60px !important;
+}
+
+footer {
+      padding: 40px;
+      text-align: center;
+      background: #111;
+      color: white;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    .socials {
+      height: 30px;
+      margin: 10px;
+      cursor: pointer;
+    }
+</style>
+<body>
+    <header>
+    <div class="logo">Кариера +</div>
+    <nav>
+      <span><a href="index.html" class="nav-link">За нас</a></span>
+      <span><a href="galerija.html" disabled class="selected nav-link">Галерија</a></span>
+      <span class="dropdown pointer">Академии
+      <div class="dropdown-content">
+        <a href="#">Beauty</a>
+        <span class="dropdown1">
+          <a href="#" disabled>Fashion</a>
+          <div class="dropdown-content1">
+            <a href="fashion.html">Целосен Преглед</a>
+            <a href="ednagodina.html">1 Година</a>
+            <a href="">2 и 3 Години</a>
+            <a href="">Модули</a>
+            <a href="">Кратки Курсеви</a>
+            <a href="">Workshops</a>
+          </div>
+        </span>
+      </div>
+      </span>
+    </nav>
+    </header>
+    <div class="hero floating-element" data-speed="0.2">
+        <h1 class="hero-title">За Нас Галерија</h1>
+    </div>
+    <div class="gallery">
+    <div class="row row1">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+      </div>
+
+      <div class="gallery-item">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="gallery-item">
+          <video autoplay muted loop playsinline>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+        </div>
+
+        
+      </div>
+      <div class="row row1">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+      </div>
+
+      <div class="gallery-item">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Gallery image">
+      </div>
+    </div>
+    
+    <div class="row row2">
+      <div class="gallery-item">
+          <video autoplay muted loop playsinline>
+            <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+        </div>
+
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" alt="Gallery image">
+        </div>
+
+        
+      </div>
+    </div>
+  <footer class="footer">
+    <div>
+      <a href="https://www.instagram.com/kariera_plus/?hl=en" target="_blank"><img class="socials" src="img/instagram-167-svgrepo-com.svg" alt=""></a>
+      <a href="https://www.facebook.com/skolozaubavinaimoda/?locale=mk_MK" target="_blank"><img class="socials" src="img/facebook-svgrepo-com (1).svg" alt=""></a>
+      
+    </div>
+  </footer>
+</body>
+</html>
